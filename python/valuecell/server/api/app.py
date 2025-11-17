@@ -107,6 +107,26 @@ def create_app() -> FastAPI:
 
 def _add_middleware(app: FastAPI, settings) -> None:
     """Add middleware to the application."""
+    # Basic Authentication (if enabled)
+    if settings.APP_ENVIRONMENT == "production":
+        try:
+            import os
+            from ..middleware.auth import BasicAuthMiddleware
+
+            auth_password = os.getenv("AUTH_PASSWORD")
+            if auth_password:
+                auth_username = os.getenv("AUTH_USERNAME", "admin")
+                app.add_middleware(
+                    BasicAuthMiddleware,
+                    username=auth_username,
+                    password=auth_password,
+                )
+                print(f"✓ HTTP Basic Authentication enabled for user: {auth_username}")
+            else:
+                print("⚠️  WARNING: No AUTH_PASSWORD set - API is publicly accessible!")
+        except Exception as e:
+            print(f"⚠️  Could not enable authentication: {e}")
+
     # CORS middleware
     app.add_middleware(
         CORSMiddleware,
