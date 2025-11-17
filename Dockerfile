@@ -23,9 +23,9 @@ RUN uv venv --python 3.12 && \
 # 复制应用代码
 COPY python/ ./
 
-# 创建数据目录（挂载卷）
-RUN mkdir -p /data
-ENV DATABASE_PATH=/data/valuecell.db
+# 创建数据目录
+RUN mkdir -p /app/data
+ENV DATABASE_PATH=/app/data/valuecell.db
 
 # 暴露端口
 EXPOSE 8000

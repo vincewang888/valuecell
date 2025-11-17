@@ -1,5 +1,5 @@
 # Fly.io 配置文件
-app = "valuecell-backend"
+app = "valuecell"
 primary_region = "sjc"  # 旧金山（可改为 hkg 香港或 nrt 东京）
 
 [build]
@@ -30,7 +30,5 @@ primary_region = "sjc"  # 旧金山（可改为 hkg 香港或 nrt 东京）
   method = "GET"
   path = "/api/v1/health"
 
-# 持久化存储（SQLite 数据库）
-[mounts]
-  source = "valuecell_data"
-  destination = "/data"
+# 持久化存储已移除 - 数据库存储在容器内
+# 注意：重启会丢失数据，生产环境建议使用外部数据库
