@@ -1,0 +1,59 @@
+# Git
+.git
+.gitignore
+.github
+
+# Documentation
+*.md
+docs/
+README*
+LICENSE
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info
+dist/
+build/
+
+# Environment
+.env
+.venv
+venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+
+# Frontend (不需要在后端 Docker 中)
+frontend/
+node_modules/
+bun.lockb
+
+# Fly.io
+.fly/
+
+# Database (会在运行时创建)
+*.db
+*.sqlite
+*.sqlite3
+lancedb/
+.knowledgebase/
+
+# Logs
+logs/
+*.log
+
+# Tauri
+valuecell.db

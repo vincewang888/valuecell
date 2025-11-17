@@ -3,7 +3,6 @@ app = "valuecell-backend"
 primary_region = "sjc"  # 旧金山（可改为 hkg 香港或 nrt 东京）
 
 [build]
-  dockerfile = "Dockerfile.flyio"
 
 [env]
   APP_NAME = "ValueCell"
