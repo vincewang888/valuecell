@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
 RUN pip install --no-cache-dir uv
 
 # 复制后端代码和依赖文件
-COPY python/pyproject.toml python/uv.lock ./python/
+COPY python/pyproject.toml python/uv.lock python/README.md ./python/
 WORKDIR /app/python
 
 # 创建虚拟环境并安装依赖（不包括 dev 依赖）
