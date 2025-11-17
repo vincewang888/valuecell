@@ -91,6 +91,7 @@ def create_app() -> FastAPI:
         lifespan=lifespan,
         docs_url="/docs" if settings.API_DEBUG else None,
         redoc_url="/redoc" if settings.API_DEBUG else None,
+        redirect_slashes=False,  # Disable automatic slash redirects to prevent HTTPS->HTTP issues
     )
 
     # Add exception handlers
